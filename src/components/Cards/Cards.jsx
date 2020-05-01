@@ -1,6 +1,6 @@
 import React from 'react';
 import {Loader} from './../';
-import {timeSince} from './../libs/DateTimeUtils';
+import {timeSince} from './../libs/utils';
 
 const Cards = (props) => {
   console.log(props);

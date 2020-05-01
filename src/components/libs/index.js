@@ -1,4 +1,4 @@
 export {
   default as timeSince
 }
-from './DateTimeUtils/timeSince';
+from './utils/timeSince';

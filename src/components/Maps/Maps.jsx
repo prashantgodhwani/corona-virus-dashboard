@@ -33,14 +33,14 @@ class Maps extends Component {
       new mapboxgl.Marker(el)
         .setLngLat([countryInfo.long, countryInfo.lat])
         .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-        .setHTML('<div class="card text-white bg-dark mb-3" style="max-width: 18rem;"><div class="card-header">'+country+'</div><div class="card-body"><p class="card-text"><span class="dot dot-yellow"></span>&nbsp;&nbsp;<b>Active Cases</b> : '+active+'<br><span class="dot dot-danger"></span>&nbsp;&nbsp;<b>Deaths</b> : '+deaths+'<br><span class="dot dot-safe"></span>&nbsp;&nbsp;<b>Recovered</b> : '+recovered+'</p></div></div>'))
+        .setHTML('<div class="card text-white bg-dark mb-3" style="max-width: 18rem;"><div class="card-header">              <img className="chat-img mr-2" src="https://www.countryflags.io/'+countryInfo.iso2+'/flat/16.png" alt=""/><span>&nbsp;'+country+'</span></div><div class="card-body"><p class="card-text"><span class="dot dot-yellow"></span>&nbsp;&nbsp;<b>Active Cases</b> : '+active+'<br><span class="dot dot-danger"></span>&nbsp;&nbsp;<b>Deaths</b> : '+deaths+'<br><span class="dot dot-safe"></span>&nbsp;&nbsp;<b>Recovered</b> : '+recovered+'</p></div></div>'))
         .addTo(this.map);
     });
   }
 
   render(){
       return (
-        <div ref={el => this.mapContainer = el} className="height-700"/>
+        <div ref={el => this.mapContainer = el} className="height-700" style={{width:"100%"}}/>
       );
     }
 }

@@ -1,176 +1,89 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const Lists = () => {
-  return (
-    <div className="container-fluid">
-    <div class="row">
-      <div class="col-lg-6 box-margin">
-        <div class="card code-table">
-          <div class="card-body pb-0">
-            <div class="card-header border-none bg-transparent d-flex align-items-center justify-content-between p-0 mb-30">
-              <div class="widgets-card-title">
-                <h5 class="card-title mb-0">Most Affected Countries</h5>
+class Lists extends Component {
+
+  constructor(props){
+    super(props);
+  }
+
+  generateCountryList(countryList){
+    console.log(countryList);
+    return countryList.map((country) => {
+      return (
+        <tr>
+            <td>
+              <img className="chat-img mr-2" src={"https://www.countryflags.io/"+country.countryInfo.iso2+"/flat/64.png"} alt=""/><span>{country.country}</span>
+            </td>
+            <td>
+              {country.cases}
+            </td>
+            <td>
+              {country.todayCases}
+            </td>
+            <td>
+              {country.recovered}
+            </td>
+            <td>
+              {country.todayDeaths}
+            </td>
+            <td>
+            {country.deaths}
+            </td>
+        </tr>
+          )
+    });
+  }
+
+  render(){
+      return (
+        <div className="container-fluid">
+          <div className="row">
+          <div className="col-lg-8 box-margin">
+            <div className="card code-table">
+              <div className="card-body pb-0">
+                <div className="card-header border-none bg-transparent d-flex align-items-center justify-content-between p-0 mb-30">
+                  <div className="widgets-card-title">
+                    <h5 className="card-title mb-0">Most Affected Countries</h5>
+                  </div>
+                </div>
+
+                <div className="table-responsive">
+                  <table className="table table-hover table-nowrap table-dark">
+                    <thead>
+                      <tr>
+                        <th>Country</th>
+                        <th>Confirmed</th>
+                        <th>Today Cases</th>
+                        <th>Recovered</th>
+                        <th>Today Deaths</th>
+                        <th>Deaths</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {(this.props.countryDataByCases.length > 0) ? this.generateCountryList(this.props.countryDataByCases) : "Loading.."}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
-
-            <div class="table-responsive">
-              <table class="table table-hover table-nowrap">
-                <thead>
-                  <tr>
-                    <th>Country</th>
-                    <th>Confirmed</th>
-                    <th>Today Cases</th>
-                    <th>Recovered</th>
-                    <th>Today Deaths</th>
-                    <th>Deaths</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <img class="chat-img mr-2" src="img/bg-img/5.png" alt="" /><span>USA</span>
-                    </td>
-                    <td>
-                      108,161
-                    </td>
-                    <td>
-                      2,48,538
-                    </td>
-                    <td>
-                      18,538
-                    </td>
-                    <td>
-                      78,538
-                    </td>
-                    <td>
-                      1,14722
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <img class="chat-img mr-2" src="img/bg-img/6.png" alt=""/><span>Italy</span>
-                    </td>
-                    <td>
-                      72,161
-                    </td>
-                    <td>
-                      9,538
-                    </td>
-                    <td>
-                      9,538
-                    </td>
-                    <td>
-                      9,538
-                    </td>
-                    <td>
-                      8,722
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <img class="chat-img mr-2" src="img/bg-img/7.png" alt=""/><span>China</span>
-                    </td>
-                    <td>
-                      12,4161
-                    </td>
-                    <td>
-                      7,538
-                    </td>
-                    <td>
-                      9,538
-                    </td>
-                    <td>
-                      9,538
-                    </td>
-                    <td>
-                      9,722
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <img class="chat-img mr-2" src="img/bg-img/8.png" alt=""/><span>Spain</span>
-                    </td>
-                    <td>
-                      108,161
-                    </td>
-                    <td>
-                      1,2538
-                    </td>
-                    <td>
-                      9,538
-                    </td>
-                    <td>
-                      9,538
-                    </td>
-                    <td>
-                      4,722
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <img class="chat-img mr-2" src="img/bg-img/9.png" alt=""/><span>Germa</span>
-                    </td>
-                    <td>
-                      7,161
-                    </td>
-                    <td>
-                      9,538
-                    </td>
-                    <td>
-                      9,538
-                    </td>
-                    <td>
-                      8,538
-                    </td>
-                    <td>
-                      2,722
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img class="chat-img mr-2" src="img/bg-img/10.jpg" alt=""/><span>Iran</span>
-                    </td>
-                    <td>
-                      8,161
-                    </td>
-                    <td>
-                      9,538
-                    </td>
-                    <td>
-                      9,538
-                    </td>
-                    <td>
-                      8,538
-                    </td>
-                    <td>
-                      2,722
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="col-lg-6 box-margin height-card">
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-body">
-                <div class="single-news-card mb-30">
-                  <h5>Concerns over reuse of protective medical kit</h5>
-                  <div class="single-card-content d-sm-flex align-items-center">
-                    <div class="image-area mb-20-xs">
-                      <img src="img/bg-img/15.jpg" alt=""/>
-                    </div>
-                    <div class="content-text">
-                      <p>One union official says a change in guidance could see front-line medics withdraw from duties. Consectetur adipisicing elit. Cumque perspiciatis soluta minima.</p>
-                      <a href="news-details.html" target="_blank">Read more</a>
+          <div className="col-lg-4 box-margin height-card">
+            <div className="row">
+              <div className="col-12">
+                <div className="card">
+                  <div className="card-body">
+                    <div className="single-news-card mb-30">
+                      <h5>Concerns over reuse of protective medical kit</h5>
+                      <div className="single-card-content d-sm-flex align-items-center">
+                        <div className="image-area mb-20-xs">
+                          <img src="img/bg-img/15.jpg" alt=""/>
+                        </div>
+                        <div className="content-text">
+                          <p>One union official says a change in guidance could see front-line medics withdraw from duties. Consectetur adipisicing elit. Cumque perspiciatis soluta minima.</p>
+                          <a href="news-details.html" target="_blank">Read more</a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -178,10 +91,9 @@ const Lists = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  );
+        </div>
+      );
+  }
 }
 
 export default Lists;

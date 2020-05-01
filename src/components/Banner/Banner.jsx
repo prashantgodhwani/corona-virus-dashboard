@@ -2,7 +2,7 @@ import React from 'react';
 import {Cards, Maps, Charts, Lists} from '../';
 
 const Banner = (props) => {
-  console.log(props);
+
 return(
 <>
 <div class="row">
@@ -13,11 +13,11 @@ return(
 
 <div className="row">
   <div className="col-md-12">
-    <Cards cardData={props.cardData} num={1000}/>
+    <Cards cardData={props.cardData} />
   </div>
 </div>
 
-<Lists />
+<Lists countryDataByCases={props.countryDataByCases}/>
 <Charts />
 </>
 );
