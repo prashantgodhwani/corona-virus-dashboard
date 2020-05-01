@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="stylesheet" href="js/default-assets/vector-map/jquery-jvectormap-2.0.2.css">
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+
+  <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>Covid-19 | Dashboard</title>
+  <style>
+    .mapboxgl-popup {
+      max-width: 200px;
+    }
+
+    .mapboxgl-popup-content {
+      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+      background: none;
+    }
+
+    .dot {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot-danger {
+      background-color: red;
+    }
+
+    .dot-safe {
+      background-color: green;
+    }
+
+    .card-header {
+      padding: .55rem 1.05rem;
+    }
+
+    .card-body {
+      padding: 8px
+    }
+
+    .dot-yellow {
+      background-color: yellow;
+    }
+
+    .card-text {
+      color: white;
+      font-size: 12px;
+    }
+
+    .pinkBg {
+      background-color: #ed184f !important;
+      background-image: red;
+    }
+
+    .intro-banner-vdo-play-btn {
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      text-align: center;
+      margin: -30px 0 0 -30px;
+      border-radius: 100px;
+      z-index: 1
+    }
+
+    .intro-banner-vdo-play-btn i {
+      line-height: 56px;
+      font-size: 30px
+    }
+
+    .intro-banner-vdo-play-btn .ripple {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      z-index: -1;
+      left: 50%;
+      top: 50%;
+      opacity: 0;
+      margin: -80px 0 0 -80px;
+      border-radius: 100px;
+      -webkit-animation: ripple 1.8s infinite;
+      animation: ripple 1.8s infinite
+    }
+
+    @-webkit-keyframes ripple {
+      0% {
+        opacity: 0.6;
+        -webkit-transform: scale(0);
+        transform: scale(0)
+      }
+
+      100% {
+        opacity: 0;
+        -webkit-transform: scale(1);
+        transform: scale(1)
+      }
+    }
+
+    @keyframes ripple {
+      0% {
+        opacity: 0.6;
+        -webkit-transform: scale(0);
+        transform: scale(0)
+      }
+
+      100% {
+        opacity: 0;
+        -webkit-transform: scale(1);
+        transform: scale(1)
+      }
+    }
+
+    .single-widger-cart {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    .card {
+      border-radius: 0 !important;
+      background-color: #1f2121 !important;
+      height: 117px;
+    }
+
+    .marg {
+      margin-top: 5px;
+      color: white;
+    }
+
+    .intro-banner-vdo-play-btn .ripple:nth-child(2) {
+      animation-delay: .3s;
+      -webkit-animation-delay: .3s
+    }
+
+    .intro-banner-vdo-play-btn .ripple:nth-child(3) {
+      animation-delay: .6s;
+      -webkit-animation-delay: .6s
+    }
+
+    .marker {
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+</body>
+
+<!-- Plugins js -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bundle.js"></script>
+<script src="js/default-assets/setting.js"></script>
+<script src="js/default-assets/date-time.js"></script>
+
+<!-- Active JS -->
+<script src="js/default-assets/active.js"></script>
+
+<!-- Inject JS -->
+
+<script src="js/script.js"></script>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+
+
+</html>
