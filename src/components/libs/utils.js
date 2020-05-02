@@ -24,13 +24,13 @@ export function timeSince(timeStamp) {
   }
 }
 
-export function commafy(num) {
-  var str = num.toString().split('.');
-  if (str[0].length >= 5) {
-    str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+export function commafy(number) {
+  var toCommafy = Math.floor(Math.abs(number / 1000));
+  var modulo = (Math.abs(number % 1000));
+  var sign = number < 0 ? '-' : '';
+  if (toCommafy) {
+    return sign + commafy(toCommafy) + ',' + (modulo < 10 ? '00' : (modulo < 100 ? '0' : '')) + modulo;
+  } else {
+    return sign + modulo.toString();
   }
-  if (str[1] && str[1].length >= 5) {
-    str[1] = str[1].replace(/(\d{3})/g, '$1 ');
-  }
-  return str.join('.');
 }

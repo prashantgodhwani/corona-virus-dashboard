@@ -1,8 +1,8 @@
 import React from 'react';
-import {Cards, Maps, Charts, Lists} from '../';
+import {Cards, Maps, Charts, Lists, CountryPicker, IntroductionPanel} from '../';
 
 const Banner = (props) => {
-
+console.log(props);
 return(
 <>
 <div class="row">
@@ -12,13 +12,17 @@ return(
 </div>
 
 <div className="row">
-  <div className="col-md-12">
     <Cards cardData={props.cardData} />
+</div>
+<div className="row" style={{marginTop:"2%"}}>
+  <div class="col-lg-8">
+    <Charts timelineData = {props.timelineData}/>
+  </div>
+  <div className="col-lg-4">
+    <CountryPicker />
   </div>
 </div>
-
 <Lists countryDataByCases={props.countryDataByCases}/>
-<Charts />
 </>
 );
 };

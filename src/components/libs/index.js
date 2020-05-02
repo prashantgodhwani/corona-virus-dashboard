@@ -1,4 +1,5 @@
 export {
-  default as timeSince
+  timeSince,
+  commafy
 }
 from './utils/timeSince';

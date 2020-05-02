@@ -14,9 +14,9 @@ const Cards = (props) => {
 
   return (
     <>
-    <div className="row">
-      <div className="single-widger-cart col-md-4" >
-          <div className="card bg-primary"  style={{paddingLeft:'6%'}}>
+    <div className="col-md-12 row" style={{paddingRight:0}}>
+        <div className="single-widger-cart col-md-4" >
+          <div className="card bg-primary">
               <div className="card-body">
                   <div className="float-right card-thumb-"><img src={"img/bg-img/1.png"} alt=""/></div>
                   <h5 className="font-16">Total Cases</h5>
@@ -35,8 +35,8 @@ const Cards = (props) => {
                 </div>
             </div>
         </div>
-            <div className="single-widger-cart col-md-4">
-                <div className="card bg-danger"  style={{paddingRight:'6%'}}>
+        <div className="single-widger-cart col-md-4">
+                <div className="card bg-danger">
                     <div className="card-body">
                         <div className="float-right card-thumb-"><img src={"img/bg-img/2.png"} alt=""/></div>
                         <h5 className="font-16">Total Deaths</h5>
@@ -46,9 +46,9 @@ const Cards = (props) => {
                 </div>
             </div>
       </div>
-      <div className="row">
-          <div className="single-widger-cart mb-30 col-md-4">
-              <div className="card bg-danger"  style={{paddingLeft:'6%'}}>
+      <div className="col-md-12 row" style={{paddingRight:0}}>
+          <div className="single-widger-cart col-md-4">
+              <div className="card bg-danger">
                   <div className="card-body">
                       <div className="float-right card-thumb-"><img src={"img/bg-img/3.png"} alt=""/></div>
                       <h5 className="font-16">Active Cases</h5>
@@ -56,7 +56,7 @@ const Cards = (props) => {
                   </div>
               </div>
           </div>
-          <div className="single-widger-cart mb-30 col-md-4">
+          <div className="single-widger-cart col-md-4">
               <div className="card bg-success">
                   <div className="card-body">
                       <div className="float-right card-thumb-"><img src={"img/bg-img/29.png"} alt=""/></div>
@@ -65,8 +65,8 @@ const Cards = (props) => {
                   </div>
               </div>
           </div>
-          <div className="single-widger-cart mb-30 col-md-4" >
-              <div className="card bg-primary" style={{paddingRight:'6%'}}>
+          <div className="single-widger-cart col-md-4" >
+              <div className="card bg-primary">
                   <div className="card-body">
                       <div className="float-right card-thumb-"><img src={"img/bg-img/30.png"} alt=""/></div>
                       <h5 className="font-16">Recent Deaths</h5>

@@ -1,14 +1,21 @@
 import axios from 'axios';
+import axiosRetry from 'axios-retry';
 
-const url = "https://corona-virus-world-and-india-data.p.rapidapi.com/api";
+const url = "https://corona-virus-world-and-india-data.p.rapidapi.com/";
 const x_rapidapi_host = "corona-virus-world-and-india-data.p.rapidapi.com";
 const x_rapidapi_key = "9920ec77e7msh522fd440cd03f5fp18cf83jsn5a79de020a2a";
+const statsURI = "api";
+const timelineURI = "api_india_timeline";
+
+axiosRetry(axios, {
+  retries: 3
+});
 
 const fetchWorldStats = async () => {
   try {
     const {
       data
-    } = await axios.get(url, {
+    } = await axios.get(url + statsURI, {
       headers: {
         "x-rapidapi-host": x_rapidapi_host,
         "x-rapidapi-key": x_rapidapi_key
@@ -52,20 +59,29 @@ const fetchCountryStats = async () => {
     const {
       data
     } = await axios.get("https://corona.lmao.ninja/v2/countries");
-    console.log(data.sort(compare).slice(0, 10));
     return data;
   } catch (error) {
     console.log(error);
   }
 }
 
-const compare = (a, b) => {
-  if (a.cases > b.cases) return -1;
-  if (b.cases > a.cases) return 1;
-  return 0;
+const fetchTimelineStats = async () => {
+  try {
+    const {
+      data
+    } = await axios.get(url + timelineURI, {
+      headers: {
+        "x-rapidapi-host": x_rapidapi_host,
+        "x-rapidapi-key": x_rapidapi_key
+      }
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 }
-
 export {
   fetchWorldStats,
-  fetchCountryStats
+  fetchCountryStats,
+  fetchTimelineStats
 };

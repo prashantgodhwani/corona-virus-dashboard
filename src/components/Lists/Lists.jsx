@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {commafy} from './../libs/utils';
 
 class Lists extends Component {
 
@@ -15,20 +16,18 @@ class Lists extends Component {
               <img className="chat-img mr-2" src={"https://www.countryflags.io/"+country.countryInfo.iso2+"/flat/64.png"} alt=""/><span>{country.country}</span>
             </td>
             <td>
-              {country.cases}
+              {commafy(country.cases)}
             </td>
             <td>
-              {country.todayCases}
+              {commafy(country.todayCases)}
             </td>
             <td>
-              {country.recovered}
+              {commafy(country.recovered)}
             </td>
             <td>
-              {country.todayDeaths}
+              {commafy(country.todayDeaths)}
             </td>
-            <td>
-            {country.deaths}
-            </td>
+
         </tr>
           )
     });
@@ -36,11 +35,11 @@ class Lists extends Component {
 
   render(){
       return (
-        <div className="container-fluid">
+        <div style={{marginTop:"2%"}}>
           <div className="row">
           <div className="col-lg-8 box-margin">
             <div className="card code-table">
-              <div className="card-body pb-0">
+              <div className="card-body pb-0" style={{paddingLeft:"0"}}>
                 <div className="card-header border-none bg-transparent d-flex align-items-center justify-content-between p-0 mb-30">
                   <div className="widgets-card-title">
                     <h5 className="card-title mb-0">Most Affected Countries</h5>
@@ -48,15 +47,14 @@ class Lists extends Component {
                 </div>
 
                 <div className="table-responsive">
-                  <table className="table table-hover table-nowrap table-dark">
+                  <table className="table table-sm table-hover table-nowrap table-dark">
                     <thead>
                       <tr>
                         <th>Country</th>
                         <th>Confirmed</th>
-                        <th>Today Cases</th>
+                        <th>Today</th>
                         <th>Recovered</th>
-                        <th>Today Deaths</th>
-                        <th>Deaths</th>
+                        <th>Deaths today</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -69,26 +67,47 @@ class Lists extends Component {
           </div>
 
           <div className="col-lg-4 box-margin height-card">
-            <div className="row">
-              <div className="col-12">
-                <div className="card">
-                  <div className="card-body">
-                    <div className="single-news-card mb-30">
-                      <h5>Concerns over reuse of protective medical kit</h5>
-                      <div className="single-card-content d-sm-flex align-items-center">
-                        <div className="image-area mb-20-xs">
-                          <img src="img/bg-img/15.jpg" alt=""/>
+              <div className="col-md-12 row">
+                <div class="col-12"><h4 class="card-title mb-1">COVID-19 Coronavirus - Symptoms</h4></div>
+                  <div className="col-md-6">
+                    <div className="virus-symptoms-card mb-20">
+                        <div className="icon-thumb"> <img src="img/icon-img/8.png" alt=""/></div>
+                        <div className="single-symptoms-content text-center">
+                            <h5><a href="#">Coughing And Sneezing</a></h5>
+                            <p className="text mb-0">Praesentium quis, nisi rerum accusantium.</p>
                         </div>
-                        <div className="content-text">
-                          <p>One union official says a change in guidance could see front-line medics withdraw from duties. Consectetur adipisicing elit. Cumque perspiciatis soluta minima.</p>
-                          <a href="news-details.html" target="_blank">Read more</a>
-                        </div>
-                      </div>
                     </div>
                   </div>
-                </div>
+
+                    <div className="col-md-6">
+                        <div className="virus-symptoms-card mb-20">
+                            <div className="icon-thumb"> <img src="img/icon-img/11.png" alt=""/></div>
+                            <div className="single-symptoms-content text-center">
+                                <h5><a href="#">Strong Headache</a></h5>
+                                <p className="text mb-0">Praesentium quis, nisi rerum accusantium.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col-md-6">
+                        <div className="virus-symptoms-card mb-50">
+                            <div className="icon-thumb"> <img src="img/icon-img/12.png" alt=""/></div>
+                            <div className="single-symptoms-content text-center">
+                                <h5><a href="#">Shortness Of Breath</a></h5>
+                                <p className="text mb-0">Praesentium quis, nisi rerum accusantium.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-6">
+                        <div className="virus-symptoms-card mb-50">
+                            <div className="icon-thumb"> <img src="img/icon-img/9.png" alt=""/></div>
+                            <div className="single-symptoms-content text-center">
+                                <h5><a href="#">Hot Fever</a></h5>
+                                <p className="text mb-0">Praesentium quis, nisi rerum accusantium quibusdam esse.</p>
+                            </div>
+                        </div>
+                    </div>
               </div>
-            </div>
           </div>
         </div>
         </div>
