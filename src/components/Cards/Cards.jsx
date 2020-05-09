@@ -3,7 +3,6 @@ import {Loader} from './../';
 import {timeSince} from './../libs/utils';
 
 const Cards = (props) => {
-  console.log(props);
 
   if(props.cardData){
     if(!props.cardData.activeCases)

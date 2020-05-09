@@ -2,7 +2,6 @@ import React from 'react';
 import {Cards, Maps, Charts, Lists, CountryPicker, IntroductionPanel} from '../';
 
 const Banner = (props) => {
-console.log(props);
 return(
 <>
 <div class="row">
@@ -19,7 +18,7 @@ return(
     <Charts timelineData = {props.timelineData}/>
   </div>
   <div className="col-lg-4">
-    <CountryPicker />
+    <CountryPicker zoneStats={props.zoneStats} districtStats={props.districtStats}/>
   </div>
 </div>
 <Lists countryDataByCases={props.countryDataByCases}/>

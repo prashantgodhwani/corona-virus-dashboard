@@ -5,11 +5,9 @@ class Charts extends Component {
 
   constructor(props){
     super(props);
-    console.log(props.timelineData);
   }
 
   render(){
-    console.log(this.props.timelineData);
     return (this.props.timelineData.length > 0) ?  (
         <Line data={{
             labels : this.props.timelineData.map(({date}) => date),

@@ -8,7 +8,6 @@ class Lists extends Component {
   }
 
   generateCountryList(countryList){
-    console.log(countryList);
     return countryList.map((country) => {
       return (
         <tr>

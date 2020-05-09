@@ -1,5 +1,6 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
+import _ from 'underscore';
 
 const url = "https://corona-virus-world-and-india-data.p.rapidapi.com/";
 const x_rapidapi_host = "corona-virus-world-and-india-data.p.rapidapi.com";
@@ -80,8 +81,50 @@ const fetchTimelineStats = async () => {
     console.log(error);
   }
 }
+
+
+const fetchZoneStats = async () => {
+  try {
+    const {
+      data
+    } = await axios.get("https://v1.api.covindia.com/zone-data");
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const fetchDistrictStats = async () => {
+  try {
+    const {
+      data
+    } = await axios.get("https://api.covid19india.org/state_district_wise.json");
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const fetchDistricts = async (query) => {
+  try {
+    const {
+      data
+    } = await axios.get("https://indian-cities-api-nocbegfhqg.now.sh/cities?City_like=" + query);
+
+    const stateData = await axios.get("https://indian-cities-api-nocbegfhqg.now.sh/cities?State_like=" + query);
+    
+    return _.union(data, stateData.data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
 export {
   fetchWorldStats,
   fetchCountryStats,
-  fetchTimelineStats
+  fetchTimelineStats,
+  fetchZoneStats,
+  fetchDistrictStats,
+  fetchDistricts
 };
