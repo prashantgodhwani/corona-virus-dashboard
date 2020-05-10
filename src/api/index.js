@@ -105,26 +105,10 @@ const fetchDistrictStats = async () => {
   }
 }
 
-const fetchDistricts = async (query) => {
-  try {
-    const {
-      data
-    } = await axios.get("https://indian-cities-api-nocbegfhqg.now.sh/cities?City_like=" + query);
-
-    const stateData = await axios.get("https://indian-cities-api-nocbegfhqg.now.sh/cities?State_like=" + query);
-    
-    return _.union(data, stateData.data);
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-
 export {
   fetchWorldStats,
   fetchCountryStats,
   fetchTimelineStats,
   fetchZoneStats,
-  fetchDistrictStats,
-  fetchDistricts
+  fetchDistrictStats
 };
