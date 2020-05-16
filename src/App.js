@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Navbar, Banner} from './components';
+import {Navbar, Banner, Footer} from './components';
 
 import {fetchWorldStats, fetchCountryStats, fetchTimelineStats, fetchZoneStats, fetchDistrictStats} from './api';
 
@@ -26,7 +26,7 @@ class App extends React.Component {
         if (a.cases > b.cases) return -1;
         if (b.cases > a.cases) return 1;
         return 0;
-      }).slice(0, 10);
+      }).slice(0, 12);
       this.setState({cardData, countryData, countryDataByCases, timelineData, zoneStats, districtStats});
   }
 
@@ -36,6 +36,7 @@ class App extends React.Component {
         <div className="page-wrapper">
           <Navbar />
           <Banner cardData={cardData} countryData={countryData} countryDataByCases={countryDataByCases} timelineData={timelineData} zoneStats={zoneStats} districtStats={districtStats}/>
+          <Footer />
       </div>
       );
     }

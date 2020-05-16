@@ -45,7 +45,6 @@ return (districtMap.filter((e) => e.toLowerCase().includes(city.toLowerCase())).
 }
 
 fetchDistrictData = (city) => {
-console.log("hello" + city);
 let zoneStats = Object.keys(this.props.zoneStats);
 let districtMap = _.map(this.props.districtStats, function(obj){ return obj.districtData; });
 districtMap = _.reduceRight(districtMap, function(a, b){ return {...a, ...b}});
@@ -62,7 +61,7 @@ return (
 <div className="results-container">
   {results.map((result) => {
   return (
-  <div className="card text-white bg-dark mb-2 result-item" style={{width :"100%"}} onClick={()=>
+  <div key={result.city} className="card text-white bg-dark mb-2 result-item" style={{width :"100%"}} onClick={()=>
     this.fetchDistrictData(result.city)}>
     <div className="card-body">
       <p className="card-text"><b>{result.city}</b>, India</p>
@@ -139,16 +138,15 @@ return (
   <div class="card-body">
     <div class="country-map">
       <div class="box-header">
-        <h5 class="card-title">India Stats</h5>
       </div>
-      <div class="p-1 bg-dark rounded rounded-pill shadow-sm mb-4">
+      <div class="p-1 bg-dark rounded shadow-sm mb-4">
         <div class="input-group">
           <div class="input-group-prepend">
             <button id="button-addon2" type="submit" class="btn btn-link text-success"><i
                 class="fa fa-search"></i></button>
           </div>
           <input type="search" placeholder="Type city / district to search.." ref={input=> this.search = input}
-          aria-describedby="button-addon2" class="color-white col-md-10 form-control border-0 bg-dark"
+          aria-describedby="button-addon2" class="color-white col-md-12 form-control border-0 bg-dark"
           onChange={_.debounce(this.handleInputChange, 300)} />
         </div>
       </div>

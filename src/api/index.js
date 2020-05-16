@@ -1,16 +1,13 @@
 import axios from 'axios';
-import axiosRetry from 'axios-retry';
 import _ from 'underscore';
+ import * as rax from 'retry-axios';
 
 const url = "https://corona-virus-world-and-india-data.p.rapidapi.com/";
 const x_rapidapi_host = "corona-virus-world-and-india-data.p.rapidapi.com";
-const x_rapidapi_key = "9920ec77e7msh522fd440cd03f5fp18cf83jsn5a79de020a2a";
+const x_rapidapi_key = process.env.REACT_APP_RAPIDAPI_KEY;
 const statsURI = "api";
 const timelineURI = "api_india_timeline";
-
-axiosRetry(axios, {
-  retries: 3
-});
+ const interceptorId = rax.attach();
 
 const fetchWorldStats = async () => {
   try {
@@ -68,12 +65,35 @@ const fetchCountryStats = async () => {
 
 const fetchTimelineStats = async () => {
   try {
+
     const {
       data
-    } = await axios.get(url + timelineURI, {
+    }  = await axios({
+      url: url + timelineURI,
       headers: {
         "x-rapidapi-host": x_rapidapi_host,
         "x-rapidapi-key": x_rapidapi_key
+      },
+      raxConfig: {
+        // Retry 3 times on requests that return a response (500, etc) before giving up.  Defaults to 3.
+        retry: 10,
+     
+        // Retry twice on errors that don't return a response (ENOTFOUND, ETIMEDOUT, etc).
+        noResponseRetries: 2,
+     
+        // Milliseconds to delay at first.  Defaults to 100.
+        retryDelay: 3000,
+     
+        // You can set the backoff type.
+        // options are 'exponential' (default), 'static' or 'linear'
+        backoffType: 'exponential',
+     
+        // You can detect when a retry is happening, and figure out how many
+        // retry attempts have been made
+        onRetryAttempt: err => {
+          const cfg = rax.getConfig(err);
+          console.log(`Retry attempt fetchTimelineStats #${cfg.currentRetryAttempt}`);
+        }
       }
     });
     return data;

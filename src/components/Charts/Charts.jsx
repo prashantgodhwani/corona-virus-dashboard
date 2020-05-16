@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Line, Bar} from 'react-chartjs-2';
+import {Loader} from './../';
 
 class Charts extends Component {
 
@@ -8,7 +9,7 @@ class Charts extends Component {
   }
 
   render(){
-    return (this.props.timelineData.length > 0) ?  (
+    return (this.props.timelineData && this.props.timelineData.length > 0) ?  (
         <Line data={{
             labels : this.props.timelineData.map(({date}) => date),
             datasets : [
@@ -34,7 +35,7 @@ class Charts extends Component {
               }
             ]
           }} />
-      ) : "LOADING..";
+      ) : <Loader/>;
   }
 }
 

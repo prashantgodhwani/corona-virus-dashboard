@@ -9,20 +9,8 @@ const Navbar = () => {
                     <a className="navbar-brand brand-logo" href="index.html"><img src="img/core-img/logo.png" alt="logo" /></a>
                     <a className="navbar-brand brand-logo-mini" href="index.html"><img src="img/core-img/small-logo.png" alt="logo" /></a>
                 </div>
-                <div className="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-                    <ul className="navbar-nav navbar-nav-right">
-                        <li className="nav-item dropdown">
-
-                        </li>
-                    </ul>
-                    <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
-                        <span className="ti-menu"></span>
-                    </button>
-                </div>
                 <div className="preheader-area d-none d-lg-block">
-                    <div className="preheader-content-wrap d-flex align-items-center">
-                        <img src="https://www.mygov.in/sites/all/themes/mygov/front_assets/images/logo.png" style={{height:"50px"}}/>
-                    </div>
+                <a href="https://github.com/prashantgodhwani/corona-virus-dashboard" class="btn-github github btn" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>&nbsp;<span>Open Sourced on GitHub</span></a>
                 </div>
             </div>
         </nav>

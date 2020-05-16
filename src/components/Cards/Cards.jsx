@@ -6,9 +6,9 @@ const Cards = (props) => {
 
   if(props.cardData){
     if(!props.cardData.activeCases)
-      return "Loading...";
+      return <Loader/>;
   }else{
-    return "Loading...";
+    return  <Loader/>;
   }
 
   return (

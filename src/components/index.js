@@ -34,3 +34,7 @@ export {
   default as IntroductionPanel
 }
 from './IntroductionPanel/IntroductionPanel';
+export {
+  default as Footer
+}
+from './Footer/Footer';
